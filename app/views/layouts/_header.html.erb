@@ -1,0 +1,35 @@
+  <div class="p-lg-2 mb-2 bg-info text-white-50">
+    <div class="d-flex flex-wrap align-items-center justify-content-lg-between">
+      <nav class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+        <%= link_to 'TWITTER', twitts_path, class: 'nav-link navbar-brand fs-1 fw-bold' %>
+      </nav>
+      <%- if user_signed_in?  %>
+<!--        <div class="dropdown text-end">-->
+<!--          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id='dropdownUser1' data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu text-small" aria-label="dropdownUser1">-->
+<!--            <li><a class="dropdown-item" href="#">Settings</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Profile</a></li>-->
+<!--            <li><hr class="dropdown-divider"></li>-->
+<!--            <li>-->
+              <%#= button_to 'Logout', destroy_user_session_path, method: :delete, data: {turbo: false},  class:'dropdown-item' %>
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+        <div class="text-end">
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete, data: {turbo: false},  class:'btn btn-outline-light btn-lg pointer-event' %>
+        </div>
+      <% else %>
+        <div class="text-end justify-content-end">
+          <%= link_to new_user_session_path do %>
+            <button type="button" class="btn btn-outline-light btn-lg pointer-event">Login</button>
+          <% end %>
+
+          <%= link_to new_user_registration_path do %>
+            <button type="button" class="btn btn-outline-light btn-lg pointer-event">Sign up</button>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>

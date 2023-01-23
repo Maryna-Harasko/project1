@@ -1,0 +1,19 @@
+<div>
+  <%= link_to 'New post', new_twitt_path, class: "btn btn-info offset-9 mb-2 text-white" %>
+</div>
+<div class="col-md-8 offset-2">
+  <div class="h-100 p-5 bg-light border rounded-3">
+    <% @twitts.each do |twitt| %>
+      <time datetime="<%= twitt.showed_created_at %>" class="text-info">
+        <%= twitt.showed_created_at %>
+      </time>
+      <div class="card border-white">
+        <div><%= twitt.body %></div>
+      </div>
+      <div class="mt-2 mb-3 d-flex gap-2">
+        <%= link_to 'Edit', edit_twitt_path(twitt), class: "btn btn-outline-info" %>
+        <%= button_to "delete", twitt, method: :delete, :confirm=>'Are you sure?', class: "btn btn-outline-info" %>
+      </div>
+    <% end %>
+  </div>
+</div>
